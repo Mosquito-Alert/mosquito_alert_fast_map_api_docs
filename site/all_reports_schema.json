@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "uniqueItems": true,
+  "title": "Root schema.",
+  "description": "Each element of this array contains information from a Mosquito Alert participant's report.",
+  "items": {
+    "properties": {
+      "version_UUID": {
+        "type": "string",
+        "minLength": 36,
+        "maxLength": 36,
+        "description": "UUID randomly generated on phone to identify each unique report version. Must be exactly 36 characters (32 hex digits plus 4 hyphens).",
+        "sample_value": "D18007F8-FD36-4288-8876-E4314A7B86AA"
+      },
+      "creation_time": {
+        "type": "string",
+        "description": "Date and time on phone when first version of report was created. Format as [ECMA 262](http://ecma-international.org/ecma-262/5.1/#sec-15.9.1.15) date time string.",
+        "sample_value": "2016-01-03T12:04:00.996Z"
+      },
+      "creation_date": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 10,
+        "description": "Date part of creation_time string (provided separately simply for convenience).",
+        "sample_value": "2016-01-03"
+      },
+      "creation_day_since_launch": {
+        "type": "integer",
+        "multipleOf": 1,
+        "maximum": 10000,
+        "minimum": 0,
+        "description": "Creation_date expressed as number of days since 13 June 2014 ,the day Mosquito Alert was launched (under its former name, Tigatrapp).",
+        "sample_value": 569
+      },
+      "creation_year": {
+        "type": "integer",
+        "minimum": 2014,
+        "description": "Year part of creation_time string (provided separately simply for convenience).",
+        "sample_value": 2016
+      },
+      "creation_month": {
+        "type": "integer",
+        "maximum": 12,
+        "minimum": 1,
+        "description": "Month part of creation_time string (provided separately simply for convenience).",
+        "sample_value": 1
+      },
+      "site_cat": {
+        "type": "integer",
+        "maximum": 5,
+        "minimum": 0,
+        "description": "An integer indicating the type of breeding site (as recorded by participant): Either 0 (storm drain), 1 (fountain), 2 (small basin), 3 (small container), 4 (well), or 5 (other).",
+        "sample_value": 0
+      },
+      "type": {
+        "type": "string",
+        "description": " Type of report: 'adult', 'site', or 'mission'.",
+        "sample_value": "site"
+      },
+      "lon": {
+        "type": "number",
+        "description": "Longitude of report location.",
+        "sample_value": -34.84125
+      },
+      "lat": {
+        "type": "number",
+        "description": "Latitude of report location.",
+        "sample_value": -7.095761
+      },
+      "movelab_annotation": {
+        "type": "object",
+        "title": "Movelab_annotation schema.",
+        "description": "This field contains information from the validation process.",
+        "properties": {
+          "edited_user_notes": {
+            "type": "string",
+            "description": "Notes written by validation experts (or written by the participant who sent the report and then edited by validation experts) for display on pubic map.",
+            "sample_value": "Nota expert@: en la foto se aprecia un patio con algunos recipientes de jardín que podrían acumular agua y ser buenos criaderos, como por ejemplo las macetas vacías."
+          },
+          "site_certainty_category": {
+            "type": "integer",
+            "maximum": 2,
+            "minimum": -3,
+            "description": "If this is a breeding site report, the degree of belief of experts that at least one photo attached to the report shows an albopictus or aegypti breeding site. Value definitions: (2, 'Definitely a breeding site'), (1, 'Probably a breeding site'), (0, 'Not sure'), (-1, 'Probably not a breeding site'), (-2, 'Definitely not a breeding site'), (-3, 'No score'))",
+            "sample_value": -1
+          },
+          "tiger_certainty_category": {
+            "type": "integer",
+            "maximum": 2,
+            "minimum": -3,
+            "description": "If this is a adult mosquito report, the degree of belief of experts that at least one photo attached to the report shows a tiger mosquito. Value definitions: (2, 'Definitely a tiger mosquito'), (1, 'Probably a tiger mosquito'), (0, 'Not sure'), (-1, 'Probably not a tiger mosquito'), (-2, 'Definitely not a tiger mosquito'), (-3, 'No score'))",
+            "sample_value": -1
+          },
+          "aegypti_certainty_category": {
+            "type": "integer",
+            "maximum": 2,
+            "minimum": -3,
+            "description": "If this is an adult mosquito report, the degree of belief of experts that at least one photo attached to the report shows an Aedes aegypti adult. Value definitions: (2, 'Definitely aegypti'), (1, 'Probably aegypti'), (0, 'Not sure'), (-1, 'Probably not aegypti'), (-2, 'Definitely not aegypti'), (-3, 'No score'))",
+            "sample_value": -1
+          },
+          "photo_html": {
+            "type": "string",
+            "description": "An HTML string that produces a small version of the selected report photo that is linked to the original (full-size) version. For reports with multiple photos, the selected report photo is the photo selected by the expert validators as best representative of the report subject.",
+            "sample_value": "<a href=\"/media/tigapics/53e0d438-ccc5-4e1d-b7be-caf02069cc8f.jpg\" target=\"_blank\"><img src=\"/media/tigapics_popups/53e0d438-ccc5-4e1d-b7be-caf02069cc8f.jpg\"></a>"
+          }
+        },
+        "required": [
+        ]
+      },
+      "tiger_responses": {
+        "type": "object",
+        "title": "Tiger_responses schema.",
+        "description": "If this is a report an adult mosquito, this field contains the responses the participant gave to the taxonomic survey in the app when submitting the report.",
+        "properties": {
+          "q3_response": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Does it have white stripes on the abdomen and legs?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          },
+          "q2_response": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Does it have a white stripe on the head and thorax?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          },
+          "q1_response": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Is it small and black with white stripes?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          }
+        },
+        "required": [
+          "q3_response",
+          "q2_response",
+          "q1_response"
+        ]
+      },
+      "site_responses": {
+        "type": "object",
+        "title": "Site_responses schema.",
+        "description": "If this is a report an breeding site, this field contains the responses the participant gave to the breeding site survey in the app when submitting the report.",
+        "properties": {
+          "q2_response_new": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Does it contain stagnant water and/or mosquito larvae or pupae (any mosquito species)?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          },
+          "q1_response_new": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Is it in a public area?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          },
+          "q3_response_new": {
+            "type": "integer",
+            "maximum": 1,
+            "minimum": -1,
+            "description": "Participant's response to question: 'Have you seen adult mosquitoes nearby (<10 meters)?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))",
+            "sample_value": 1
+          }
+        },
+        "required": [
+          "q2_response_new",
+          "q1_response_new",
+          "q3_response_new"
+        ]
+      },
+      "tigaprob_cat": {
+        "type": "integer",
+        "maximum": 2,
+        "minimum": -2,
+        "description": "If this is an adult mosquito report, this is score based on the participant's responses to the taxonomic questions, representing probability that the observed mosquito was a tiger mosquito or aegypti. (If type != 'adult', then any value returned in tigaprob_cat is not valid and should be ignored.",
+        "sample_value": 1
+      },
+      "visible": {
+        "type": "boolean",
+        "description": "Indicates whether this report should be displayed on the map.",
+        "sample_value": true
+      },
+      "latest_version": {
+        "type": "boolean",
+        "description": "Indicates whether this is the latest version of the report (as opposed to an earlier version that the participant subsequently edited).",
+        "sample_value": true
+      }
+    },
+    "required": [
+      "version_UUID",
+      "creation_time",
+      "creation_date",
+      "creation_day_since_launch",
+      "creation_year",
+      "creation_month",
+      "site_cat",
+      "type",
+      "lon",
+      "lat",
+      "tigaprob_cat",
+      "visible",
+      "latest_version"
+    ]
+  }
+}

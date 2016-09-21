@@ -1,0 +1,702 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="API documentation for Mosquito Alert Fast Map API.">
+
+    <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="bt.css">
+<link rel="stylesheet" href="style.css">
+  
+ <script type="text/javascript" src="scripts/json-min.js"></script>
+<script type="text/javascript" src="scripts/BubbleTooltips.js"></script>
+<script type="text/javascript" src="scripts/parse.js"></script>
+ 
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/side-menu.css">
+    <!--<![endif]-->
+  
+<!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="#">MAFM API</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="#overview" class="pure-menu-link">Overview</a></li>
+                <li class="pure-menu-item"><a href="#reports" class="pure-menu-link">Reports</a></li>
+                <li class="pure-menu-item"><a href="#coverage" class="pure-menu-link">Coverage</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Mosquito Alert Fast Map API</h1>
+            <h2>Documentation</h2>
+        </div>
+
+        <div class="content">
+
+           <a name="overview"><h2 class="content-subhead">Overview</h2></a>
+            <p>
+                This is a very simple API that handles only GET requests and returns static json files that are pre-processed on our server nightly. We take this approach to minimize server load for requests coming from web maps and other applications that generate high traffic. The documentation for each endpoint is based on the <a href="http://json-schema.org/">JSON Schema</a> vocabulary. The JSON Schema strings can be viewed raw or as formatted tables. 
+            </p>
+
+
+           <a name="reports"><h2 class="content-subhead">Report Endpoints</h2></a>
+           <code>/all_reports2014.json</code><br>
+           <code>/all_reports2015.json</code><br>
+           <code>/all_reports2016.json</code>
+
+            <p>
+                Each of these endpoints returns a json string that follows the same schema (below). The data is divided by year to improve map speed by allowing asynchronous load of each file. Note that the data from previous years can change (e.g. if a participant edits and old report), so it is important to reload all of this data daily.
+            </p>
+            <h3>Schema</h3>
+<a class="pure-button" href="all_reports_schema.json">Raw JSON Schema</a>
+<br><br>
+
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>$schema</td><td><span class="string">http://json-schema.org/draft-0<wbr>4/schema#</span></td></tr>
+<tr><td>type</td><td><span class="string">array</span></td></tr>
+<tr><td>uniqueItems</td><td><span class="boolean">true</span></td></tr>
+<tr><td>title</td><td><span class="string">Root schema.</span></td></tr>
+<tr><td>description</td><td><span class="string">Each element of this array contains information from a Mosquito Alert participant's report.</span></td></tr>
+<tr><td>items</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>properties</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>version_UUID</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>minLength</td><td><span class="number">36</span></td></tr>
+<tr><td>maxLength</td><td><span class="number">36</span></td></tr>
+<tr><td>description</td><td><span class="string">UUID randomly generated on phone to identify each unique report version. Must be exactly 36 characters (32 hex digits plus 4 hyphens).</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">D18007F8-FD36-4288-8876-E4314A<wbr>7B86AA</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>creation_time</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>description</td><td><span class="string">Date and time on phone when first version of report was created. Format as [ECMA 262](http://ecma-international<wbr>.org/ecma-262/5.1/#sec-15.9.1.<wbr>15) date time string.</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">2016-01-03T12:04:00.996Z</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>creation_date</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>minLength</td><td><span class="number">10</span></td></tr>
+<tr><td>maxLength</td><td><span class="number">10</span></td></tr>
+<tr><td>description</td><td><span class="string">Date part of creation_time string (provided separately simply for convenience).</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">2016-01-03</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>creation_day_since_launch</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>multipleOf</td><td><span class="number">1</span></td></tr>
+<tr><td>maximum</td><td><span class="number">10000</span></td></tr>
+<tr><td>minimum</td><td><span class="number">0</span></td></tr>
+<tr><td>description</td><td><span class="string">Creation_date expressed as number of days since 13 June 2014 ,the day Mosquito Alert was launched (under its former name, Tigatrapp).</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">569</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>creation_year</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>minimum</td><td><span class="number">2014</span></td></tr>
+<tr><td>description</td><td><span class="string">Year part of creation_time string (provided separately simply for convenience).</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">2016</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>creation_month</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">12</span></td></tr>
+<tr><td>minimum</td><td><span class="number">1</span></td></tr>
+<tr><td>description</td><td><span class="string">Month part of creation_time string (provided separately simply for convenience).</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>site_cat</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">5</span></td></tr>
+<tr><td>minimum</td><td><span class="number">0</span></td></tr>
+<tr><td>description</td><td><span class="string">An integer indicating the type of breeding site (as recorded by participant): Either 0 (storm drain), 1 (fountain), 2 (small basin), 3 (small container), 4 (well), or 5 (other).</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">0</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>type</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>description</td><td><span class="string"> Type of report: 'adult', 'site', or 'mission'.</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">site</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>lon</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">number</span></td></tr>
+<tr><td>description</td><td><span class="string">Longitude of report location.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-34.84125</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>lat</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">number</span></td></tr>
+<tr><td>description</td><td><span class="string">Latitude of report location.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-7.095761</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>movelab_annotation</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">object</span></td></tr>
+<tr><td>title</td><td><span class="string">Movelab_annotation schema.</span></td></tr>
+<tr><td>description</td><td><span class="string">This field contains information from the validation process.</span></td></tr>
+<tr><td>properties</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>edited_user_notes</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>description</td><td><span class="string">Notes written by validation experts (or written by the participant who sent the report and then edited by validation experts) for display on pubic map.</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">Nota expert@: en la foto se aprecia un patio con algunos recipientes de jardín que podrían acumular agua y ser buenos criaderos, como por ejemplo las macetas vacías.</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>site_certainty_category</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">2</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-3</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is a breeding site report, the degree of belief of experts that at least one photo attached to the report shows an albopictus or aegypti breeding site. Value definitions: (2, 'Definitely a breeding site'), (1, 'Probably a breeding site'), (0, 'Not sure'), (-1, 'Probably not a breeding site'), (-2, 'Definitely not a breeding site'), (-3, 'No score'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>tiger_certainty_category</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">2</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-3</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is a adult mosquito report, the degree of belief of experts that at least one photo attached to the report shows a tiger mosquito. Value definitions: (2, 'Definitely a tiger mosquito'), (1, 'Probably a tiger mosquito'), (0, 'Not sure'), (-1, 'Probably not a tiger mosquito'), (-2, 'Definitely not a tiger mosquito'), (-3, 'No score'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>aegypti_certainty_category</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">2</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-3</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is an adult mosquito report, the degree of belief of experts that at least one photo attached to the report shows an Aedes aegypti adult. Value definitions: (2, 'Definitely aegypti'), (1, 'Probably aegypti'), (0, 'Not sure'), (-1, 'Probably not aegypti'), (-2, 'Definitely not aegypti'), (-3, 'No score'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>photo_html</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">string</span></td></tr>
+<tr><td>description</td><td><span class="string">An HTML string that produces a small version of the selected report photo that is linked to the original (full-size) version. For reports with multiple photos, the selected report photo is the photo selected by the expert validators as best representative of the report subject.</span></td></tr>
+<tr><td>sample_value</td><td><span class="string">&lt;a href="/media/tigapics/53e0d438<wbr>-ccc5-4e1d-b7be-caf02069cc8f.j<wbr>pg" target="_blank"&gt;&lt;img src="/media/tigapics_popups/53<wbr>e0d438-ccc5-4e1d-b7be-caf02069<wbr>cc8f.jpg"&gt;&lt;/a&gt;</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>required</td><td>(empty <span class="titled">Array</span>)
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>tiger_responses</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">object</span></td></tr>
+<tr><td>title</td><td><span class="string">Tiger_responses schema.</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is a report an adult mosquito, this field contains the responses the participant gave to the taxonomic survey in the app when submitting the report.</span></td></tr>
+<tr><td>properties</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>q3_response</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Does it have white stripes on the abdomen and legs?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>q2_response</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Does it have a white stripe on the head and thorax?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>q1_response</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Is it small and black with white stripes?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>required</td><td><div class="wrap">
+<div class="array" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Array</span></h3>
+<table class="arraytable">
+<tbody><tr><th>Index</th><th>Value</th></tr>
+<tr><td>0</td><td><span class="string">q3_response</span></td></tr>
+<tr><td>1</td><td><span class="string">q2_response</span></td></tr>
+<tr><td>2</td><td><span class="string">q1_response</span></td></tr>
+</tbody></table>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>site_responses</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">object</span></td></tr>
+<tr><td>title</td><td><span class="string">Site_responses schema.</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is a report an breeding site, this field contains the responses the participant gave to the breeding site survey in the app when submitting the report.</span></td></tr>
+<tr><td>properties</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>q2_response_new</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Does it contain stagnant water and/or mosquito larvae or pupae (any mosquito species)?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>q1_response_new</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Is it in a public area?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>q3_response_new</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">1</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-1</span></td></tr>
+<tr><td>description</td><td><span class="string">Participant's response to question: 'Have you seen adult mosquitoes nearby (&lt;10 meters)?'. Value definitions: ((1, 'yes'), (0, 'no response'), (-1, 'no'))</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>required</td><td><div class="wrap">
+<div class="array" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Array</span></h3>
+<table class="arraytable">
+<tbody><tr><th>Index</th><th>Value</th></tr>
+<tr><td>0</td><td><span class="string">q2_response_new</span></td></tr>
+<tr><td>1</td><td><span class="string">q1_response_new</span></td></tr>
+<tr><td>2</td><td><span class="string">q3_response_new</span></td></tr>
+</tbody></table>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>tigaprob_cat</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">2</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-2</span></td></tr>
+<tr><td>description</td><td><span class="string">If this is an adult mosquito report, this is score based on the participant's responses to the taxonomic questions, representing probability that the observed mosquito was a tiger mosquito or aegypti. (If type != 'adult', then any value returned in tigaprob_cat is not valid and should be ignored.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>visible</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">boolean</span></td></tr>
+<tr><td>description</td><td><span class="string">Indicates whether this report should be displayed on the map.</span></td></tr>
+<tr><td>sample_value</td><td><span class="boolean">true</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>latest_version</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">boolean</span></td></tr>
+<tr><td>description</td><td><span class="string">Indicates whether this is the latest version of the report (as opposed to an earlier version that the participant subsequently edited).</span></td></tr>
+<tr><td>sample_value</td><td><span class="boolean">true</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>required</td><td><div class="wrap">
+<div class="array" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Array</span></h3>
+<table class="arraytable">
+<tbody><tr><th>Index</th><th>Value</th></tr>
+<tr><td>0</td><td><span class="string">version_UUID</span></td></tr>
+<tr><td>1</td><td><span class="string">creation_time</span></td></tr>
+<tr><td>2</td><td><span class="string">creation_date</span></td></tr>
+<tr><td>3</td><td><span class="string">creation_day_since_launch</span></td></tr>
+<tr><td>4</td><td><span class="string">creation_year</span></td></tr>
+<tr><td>5</td><td><span class="string">creation_month</span></td></tr>
+<tr><td>6</td><td><span class="string">site_cat</span></td></tr>
+<tr><td>7</td><td><span class="string">type</span></td></tr>
+<tr><td>8</td><td><span class="string">lon</span></td></tr>
+<tr><td>9</td><td><span class="string">lat</span></td></tr>
+<tr><td>10</td><td><span class="string">tigaprob_cat</span></td></tr>
+<tr><td>11</td><td><span class="string">visible</span></td></tr>
+<tr><td>12</td><td><span class="string">latest_version</span></td></tr>
+</tbody></table>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table>
+
+
+
+           <a name="coverage"><h2 class="content-subhead">Coverage Endpoint</h2></a>
+           <code>/coverage_month_data.json</code>
+
+            <p>
+                This endpoint returns aggregated data on Mosquito Alert participant locations, for use in estimating sampling effort. Locations sampled 5 times per day at random intervals and are masked on participant's devices by placing the true location on a sampling grid of 0.05 degrees longitude by 0.05 degrees latitude and sending only the sampling cell identifier to the server. The location data returned by this endpoint gives number of users per sampling cell per month, with sampling cells identified by their SW corners.
+                            </p>
+            <h3>Schema</h3>
+<a class="pure-button" href="coverage_month_schema.json">Raw JSON Schema</a>
+<br><br>
+
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>$schema</td><td><span class="string">http://json-schema.org/draft-0<wbr>4/schema#</span></td></tr>
+<tr><td>type</td><td><span class="string">array</span></td></tr>
+<tr><td>uniqueItems</td><td><span class="boolean">true</span></td></tr>
+<tr><td>title</td><td><span class="string">Root schema.</span></td></tr>
+<tr><td>description</td><td><span class="string">Each element of this array contains information about a given sampling cell in a given month.</span></td></tr>
+<tr><td>items</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>properties</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>lat</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>description</td><td><span class="string">The latitude of the SW corner of the sampling cell.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">42</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>lon</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">number</span></td></tr>
+<tr><td>description</td><td><span class="string">The longitude of the SW corner of the sampling cell.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">-1.65</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>year</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>minimum</td><td><span class="number">2014</span></td></tr>
+<tr><td>description</td><td><span class="string">The year for which the aggregation was done</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">2014</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>month</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">12</span></td></tr>
+<tr><td>minimum</td><td><span class="number">1</span></td></tr>
+<tr><td>description</td><td><span class="string">The month for which the aggregation was done</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">9</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>n_fixes</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>minimum</td><td><span class="number">0</span></td></tr>
+<tr><td>description</td><td><span class="string">Number of times participants were recorded in this sampling cell during the given month.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>required</td><td><div class="wrap">
+<div class="array" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Array</span></h3>
+<table class="arraytable">
+<tbody><tr><th>Index</th><th>Value</th></tr>
+<tr><td>0</td><td><span class="string">lat</span></td></tr>
+<tr><td>1</td><td><span class="string">lon</span></td></tr>
+<tr><td>2</td><td><span class="string">year</span></td></tr>
+<tr><td>3</td><td><span class="string">month</span></td></tr>
+<tr><td>4</td><td><span class="string">n_fixes</span></td></tr>
+</tbody></table>
+</div>
+</div>
+</td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+</tbody></table>
+
+</div>
+
+<script src="scripts/ui.js"></script>
+
+</body>
+</html>

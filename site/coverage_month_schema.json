@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "uniqueItems": true,
+  "title": "Root schema.",
+  "description": "Each element of this array contains information about a given sampling cell in a given month.",
+  "items": {
+    "properties": {
+      "lat": {
+        "type": "integer",
+        "description": "The latitude of the SW corner of the sampling cell.",
+        "sample_value": 42
+      },
+      "lon": {
+        "type": "number",
+        "description": "The longitude of the SW corner of the sampling cell.",
+        "sample_value": -1.65
+      },
+      "year": {
+        "type": "integer",
+        "minimum": 2014,
+        "description": "The year for which the aggregation was done",
+        "sample_value": 2014
+      },
+      "month": {
+        "type": "integer",
+        "maximum": 12,
+        "minimum": 1,
+        "description": "The month for which the aggregation was done",
+        "sample_value": 9
+      },
+      "n_fixes": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Number of times participants were recorded in this sampling cell during the given month.",
+        "sample_value": 1
+      }
+    },
+    "required": [
+      "lat",
+      "lon",
+      "year",
+      "month",
+      "n_fixes"
+    ]
+  }
+}
