@@ -294,6 +294,36 @@
 </div>
 </div>
 </td></tr>
+<tr><td>crowdcrafting_score_cat</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">2</span></td></tr>
+<tr><td>minimum</td><td><span class="number">-2</span></td></tr>
+<tr><td>description</td><td><span class="string">Tiger mosquito score category assigned to the photo displayed in this report by crowdcrafting volunteers. The score category is calculated based on the number of positive and negative responses to the questions, 'Do you see a mosquito in this photo?' and 'Is it a tiger mosquito?'. A 'yes' to both questions is given a 1 and a 'no' to either is given a -1. The score category is mean of these responses, normalized to range from [-2,2] and rounded to integer values. For reports with multiple photos the score is for the photo that the expert validators selected as the one that best represents the report.</span></td></tr>
+<tr><td>sample_value</td><td><span class="number">1</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
+<tr><td>crowdcrafting_n_response</td><td><div class="wrap">
+<div class="object" onmouseover="doFocus(event, this);">
+<div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
+<h3><span class="titled">Object</span></h3>
+<table class="objecttable">
+<tbody><tr><th>Name</th><th>Value</th></tr>
+<tr><td>type</td><td><span class="string">integer</span></td></tr>
+<tr><td>maximum</td><td><span class="number">0</span></td></tr>
+<tr><td>minimum</td><td><span class="number">30</span></td></tr>
+<tr><td>description</td><td><span class="string">Number of crowdcrafting volunteers who have scored the photo displayed in this report. For reports with multiple photos the score is for the photo that the expert validators selected as the one that best represents the report.</span></td></tr>
+<tr><td>sample_value:</td><td><span class="number">6</span></td></tr>
+</tbody></table><div class="clear"></div>
+</div>
+</div>
+</td></tr>
 <tr><td>site_certainty_category</td><td><div class="wrap">
 <div class="object" onmouseover="doFocus(event, this);">
 <div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
@@ -570,7 +600,7 @@
 </div>
 </td></tr>
 <tr><td>required</td><td><div class="wrap">
-<div class="array" onmouseover="doFocus(event, this);" style="border: 1px solid rgb(0, 0, 0);">
+<div class="array" onmouseover="doFocus(event, this);">
 <div class="widgets"><img src="images/min.gif" onclick="hideChild(this);"></div>
 <h3><span class="titled">Array</span></h3>
 <table class="arraytable">
@@ -597,7 +627,6 @@
 </div>
 </td></tr>
 </tbody></table>
-
 
 
            <a name="coverage"><h2 class="content-subhead">Coverage Endpoint</h2></a>
