@@ -78,6 +78,20 @@
             "description": "Notes written by validation experts (or written by the participant who sent the report and then edited by validation experts) for display on pubic map.",
             "sample_value": "Nota expert@: en la foto se aprecia un patio con algunos recipientes de jardín que podrían acumular agua y ser buenos criaderos, como por ejemplo las macetas vacías."
           },
+          "crowdcrafting_score_cat": {
+            "type": "integer",
+            "maximum": 2,
+            "minimum": -2,
+            "description": "Tiger mosquito score category assigned to the photo displayed in this report by crowdcrafting volunteers. The score category is calculated based on the number of positive and negative responses to the questions, 'Do you see a mosquito in this photo?' and 'Is it a tiger mosquito?'. A 'yes' to both questions is given a 1 and a 'no' to either is given a -1. The score category is mean of these responses, normalized to range from [-2,2] and rounded to integer values. For reports with multiple photos the score is for the photo that the expert validators selected as the one that best represents the report.", 
+            "sample_value": 1
+          }, 
+          "crowdcrafting_n_response": {
+            "type": "integer",
+            "maximum": 0,
+            "minimum": 30,
+            "description": "Number of crowdcrafting volunteers who have scored the photo displayed in this report. For reports with multiple photos the score is for the photo that the expert validators selected as the one that best represents the report.", 
+            "sample_value:": 6
+          },
           "site_certainty_category": {
             "type": "integer",
             "maximum": 2,
