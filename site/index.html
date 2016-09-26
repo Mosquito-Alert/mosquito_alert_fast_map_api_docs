@@ -94,9 +94,9 @@
 
 
            <a name="reports"><h2 class="content-subhead">Report Endpoints</h2></a>
-           <code>/all_reports2014.json</code><br>
-           <code>/all_reports2015.json</code><br>
-           <code>/all_reports2016.json</code>
+            <a href="../all_reports2014.json"><code>/all_reports2014.json</code></a><br>
+            <a href="../all_reports2015.json"><code>/all_reports2015.json</code></a><br>
+            <a href="../all_reports2016.json"><code>/all_reports2016.json</code></a>
 
             <p>
                 Each of these endpoints returns a json string that follows the same schema (below). The data is divided by year to improve map speed by allowing asynchronous load of each file. Note that the data from previous years can change (e.g. if a participant edits and old report), so it is important to reload all of this data daily.
@@ -630,7 +630,7 @@
 
 
            <a name="coverage"><h2 class="content-subhead">Coverage Endpoint</h2></a>
-           <code>/coverage_month_data.json</code>
+            <a href="../coverage_month_data.json"><code>/coverage_month_data.json</code></a>
 
             <p>
                 This endpoint returns aggregated data on Mosquito Alert participant locations, for use in estimating sampling effort. Locations sampled 5 times per day at random intervals and are masked on participant's devices by placing the true location on a sampling grid of 0.05 degrees longitude by 0.05 degrees latitude and sending only the sampling cell identifier to the server. The location data returned by this endpoint gives number of users per sampling cell per month, with sampling cells identified by their SW corners.
